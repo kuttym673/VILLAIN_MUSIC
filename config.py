@@ -1,72 +1,86 @@
 import re
 from os import getenv
+
 from dotenv import load_dotenv
 from pyrogram import filters
 
 load_dotenv()
 
-# Required from my.telegram.org
+# Get this value from my.telegram.org/apps
 API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
 
-# Get your token from @BotFather
+# Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
-
-# Bot info
-OWNER_USERNAME = getenv("OWNER_USERNAME", "GodxSharma")
-BOT_USERNAME = getenv("BOT_USERNAME", "HydraxMusic_bot")
+# -------------------------------------------------------
+OWNER_USERNAME = getenv("OWNER_USERNAME","Titans_Tiger")
+# --------------------------------------------------------
+BOT_USERNAME = getenv("BOT_USERNAME","Kutty_Music_Bot")
+# --------------------------------------------------------
 BOT_NAME = getenv("BOT_NAME")
+# ---------------------------------------------------------
 
-# MongoDB URI
+
+# Get your mongo url from cloud.mongodb.com
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
-# Duration limit in minutes
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
 
-# Logger group chat ID
-LOGGER_ID = int(getenv("LOGGER_ID", -1002311769574))
+# Chat id of a group for logging bot's activities
+LOGGER_ID = int(getenv("LOGGER_ID", -1002890694811))
 
-# Owner ID (from /id)
-OWNER_ID = int(getenv("OWNER_ID", 1129848570))
+# Get this value from @PURVI_HELP_BOT on Telegram by /id
+OWNER_ID = int(getenv("OWNER_ID", 1360894709))
 
-# Privacy policy link
+
+# make your bots privacy from telegra.ph and put your url here 
 PRIVACY_LINK = getenv("PRIVACY_LINK", "https://graph.org/PRIVACY-FOR-TEAM-PURVI-BOTS-09-18")
 
-# Heroku config (optional)
+## Fill these variables if you're deploying on heroku.
+# Your heroku app name
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
+# Get it from http://dashboard.heroku.com/account
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
-# GitHub repo for updates
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/Meenu9050/VILLAIN_MUSIC")
+UPSTREAM_REPO = getenv(
+    "UPSTREAM_REPO",
+    "https://github.com/kuttym673/VILLAIN_MUSIC",
+)
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
-GIT_TOKEN = getenv("GIT_TOKEN", None)  # For private repos
+GIT_TOKEN = getenv(
+    "GIT_TOKEN", None
+)  # Fill this variable if your upstream repository is private
 
-# ✅ FIXED: Telegram channel/chat URLs must start with https://
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/Hydrax_Music_update")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/Hydrax_Music_update")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/kutty_support_world")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/kutty_support_world")
 
-# Auto-leaving assistant (True/False)
+# Set this to True if you want the assistant to automatically leave chats after an interval
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
 
-# Spotify credentials
+
+# Get this credentials from https://developer.spotify.com/dashboard
 SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", None)
 SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", None)
 
-# Playlist fetch limit
+
+# Maximum limit for fetching playlist's track from youtube, spotify, apple links.
 PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", 25))
 
-# Telegram file size limits (in bytes)
-TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", 104857600))     # 100 MB
-TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 1073741824))    # 1 GB
 
-# Pyrogram string sessions (for assistants)
+# Telegram audio and video file size limit (in bytes)
+TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", 104857600))
+TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 1073741824))
+# Checkout https://www.gbmb.org/mb-to-bytes for converting mb to bytes
+
+
+# Get your pyrogram v2 session from @StringFatherBot on Telegram
 STRING1 = getenv("STRING_SESSION", None)
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
 STRING5 = getenv("STRING_SESSION5", None)
 
-# Runtime variables
+
 BANNED_USERS = filters.user()
 adminlist = {}
 lyrical = {}
@@ -74,38 +88,41 @@ votemode = {}
 autoclean = []
 confirmer = {}
 
-# Images (default fallback URL used)
-DEFAULT_IMG = "https://files.catbox.moe/fcawaj.jpg"
-START_IMG_URL = getenv("START_IMG_URL", DEFAULT_IMG)
-PING_IMG_URL = getenv("PING_IMG_URL", DEFAULT_IMG)
-PLAYLIST_IMG_URL = DEFAULT_IMG
-STATS_IMG_URL = DEFAULT_IMG
-TELEGRAM_AUDIO_URL = DEFAULT_IMG
-TELEGRAM_VIDEO_URL = DEFAULT_IMG
-STREAM_IMG_URL = DEFAULT_IMG
-SOUNCLOUD_IMG_URL = DEFAULT_IMG
-YOUTUBE_IMG_URL = DEFAULT_IMG
-SPOTIFY_ARTIST_IMG_URL = DEFAULT_IMG
-SPOTIFY_ALBUM_IMG_URL = DEFAULT_IMG
-SPOTIFY_PLAYLIST_IMG_URL = DEFAULT_IMG
 
-# Time converter
+START_IMG_URL = getenv(
+    "START_IMG_URL", "https://files.catbox.moe/fcawaj.jpg"
+)
+PING_IMG_URL = getenv(
+    "PING_IMG_URL", "https://files.catbox.moe/fcawaj.jpg"
+)
+PLAYLIST_IMG_URL = "https://files.catbox.moe/fcawaj.jpg"
+STATS_IMG_URL = "https://files.catbox.moe/fcawaj.jpg"
+TELEGRAM_AUDIO_URL = "https://files.catbox.moe/fcawaj.jpg"
+TELEGRAM_VIDEO_URL = "https://files.catbox.moe/fcawaj.jpg"
+STREAM_IMG_URL = "https://files.catbox.moe/fcawaj.jpg"
+SOUNCLOUD_IMG_URL = "https://files.catbox.moe/fcawaj.jpg"
+YOUTUBE_IMG_URL = "https://files.catbox.moe/fcawaj.jpg"
+SPOTIFY_ARTIST_IMG_URL = "https://files.catbox.moe/fcawaj.jpg"
+SPOTIFY_ALBUM_IMG_URL = "https://files.catbox.moe/fcawaj.jpg"
+SPOTIFY_PLAYLIST_IMG_URL = "https://files.catbox.moe/fcawaj.jpg"
+
+
 def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60**i for i, x in enumerate(reversed(stringt.split(":"))))
 
-# Set duration limit in seconds
+
 DURATION_LIMIT = int(time_to_seconds(f"{DURATION_LIMIT_MIN}:00"))
 
-# Final validation
+
 if SUPPORT_CHANNEL:
-    if not re.match(r"^(?:http|https)://", SUPPORT_CHANNEL):
+    if not re.match("(?:http|https)://", SUPPORT_CHANNEL):
         raise SystemExit(
-            "[ERROR] - Your SUPPORT_CHANNEL URL is wrong. It must start with https://"
+            "[ERROR] - Your SUPPORT_CHANNEL url is wrong. Please ensure that it starts with https://"
         )
 
 if SUPPORT_CHAT:
-    if not re.match(r"^(?:http|https)://", SUPPORT_CHAT):
+    if not re.match("(?:http|https)://", SUPPORT_CHAT):
         raise SystemExit(
-            "[ERROR] - Your SUPPORT_CHAT URL is wrong. It must start with https://"
+            "[ERROR] - Your SUPPORT_CHAT url is wrong. Please ensure that it starts with https://"
         )
